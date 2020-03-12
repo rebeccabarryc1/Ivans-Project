@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http.//www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Ebusiness 1</title>
+        <!--<link rel="stylesheet" href="style.css" type="text/css" /> -->
+
+<title>CSS Template</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    </head>
+       
+            <style>
+    body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-image: url('background.jpg.png');
+  
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #130909 ; 
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #2B2424 ;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #2B2424  ;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #eee;
+  color: #2B2424 ;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+ 
+            </style>
+<body>
+
+<div class="navbar">
+  <a href="Index2.html">Home</a>
+  <div class="subnav">
+    <button class="subnavbtn">Curriculum Vitae <i class="fa fa-caret-down"></i></button>
+    <!--Display subsections of the different parts of the CV when hovering over the nav bar-->
+	<div class="subnav-content">
+      <a href="CvPersonalDetails.html">Personal Details</a>
+      <a href="EducationalDetails.html">Educational Details</a>
+      <a href="WorkExperience.html">Part Time work Experience</a>
+    </div>
+  </div> 
+  <div class="subnav">
+    <button class="subnavbtn">Interests <i class="fa fa-caret-down"></i></button>
+	  <!--Display subsections of the different parts of my interests when hovering over the nav bar-->
+    <div class="subnav-content">
+      <a href="Sports.Html">Sports</a>
+      <a href="Travel.html">Travel</a>
+    </div>
+  </div> 
+  <div class="subnav">
+    <button class="subnavbtn">Consulting Services <i class="fa fa-caret-down"></i></button>
+	  <!--Display subsections of the different examples of consulting services when hovering over the nav bar-->
+    <div class="subnav-content">
+      <a href="Hyperautomation.html">Hyperautomation</a>
+      <a href="Multiexperience.html">Multiexperience</a>
+      <a href="DistributedCloud.html">Distributed Cloud</a>
+    </div>
+  </div>
+  <a href="EBusinessCalculator.html">EBusiness Calculator</a>
+    <!--Go to the calculator which calculates total for the consulting servce including vats and discounts-->
+</div>
+ 
+ 
+        <center>
+        <div class="form">
+            <form name="intCalc" method="post" action="eBus2.php">
+                <center>
+            <h1>RBC Consulting Service Calculator</h1>    
+                </center>
+        <hr/>
+        <center>
+            <table cellspacing="20">
+                <tr>
+                    <td><b>Package</b></td>
+                </tr>
+                <tr>
+                    <td>Hyperautomation @ $200</td>
+                    <td><input type="radio" id="Hyperautomation" name="rdoGroup" value="200"  required /></td>
+                </tr>
+                <tr>
+                    <td>Multiexperience @ $500</td>
+                    <td><input type="radio" id="Multiexperience" name="rdoGroup" value="500"  /></td>
+                </tr>
+                <tr>
+                    <td>Distributed Cloud @ $1000</td>
+                    <td><input type="radio" id="DistributedCloud" name="rdoGroup" value="1000" /></td>
+                </tr>
+            </table>
+        </center>
+        <br/>
+            <center>
+                 <table cellspacing="10">
+            <tr>
+                    <td><b></b></td>
+                    <td><b>Amount</b></td>
+            </tr>
+                <tr>
+                    <td>Sub Total</td>
+                    <td><input type="text" id="txtSubTot" name="txtSub" readonly  required/></td>
+                </tr>
+                <tr>
+                    <td>Discount @ 5%</td>
+                    <td><input type="text" id="txtDisc" name="txtDisc" readonly  required/></td>
+                </tr>
+                <tr>
+                    <td>+ VAT @ 20%</td>
+                    <td><input type="text" id="txtVAT" name="txtVAT" readonly required /></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td><input type="text" id="txtTotal" name="txtTotal" value="" readonly required/></td>
+                </tr>
+            </table>
+        </center>
+       
+        <br />
+            <center>
+            <input type="button" name="btnCalc" id="btnCalc" onclick="calcSub()" value="Calculate Amount"/>
+            <input type="reset" name="btnClear" id="btnClear" value="Clear"/>
+           
+           
+        </center>
+            </form>
+        </div>
+        </center>
+            <script type="text/javascript">
+              function calcSub(){
+                    var argSelection = parseFloat(document.getElementById('txtSubTot').value);
+                    var Hyperautomation = parseFloat(document.getElementById('Hyperautomation').value);
+                    var Multiexperience = parseFloat(document.getElementById('Multiexperience').value);
+                    var DistributedCloud = parseFloat(document.getElementById('DistributedCloud').value);
+                   
+                   
+                    if (document.getElementById('Hyperautomation').checked) {
+                        document.intCalc.txtSubTot.value = Hyperautomation;
+                        argSelection = Hyperautomation;
+                        calcVatTotal(argSelection);
+                       
+                    }
+                   else if (document.getElementById('Multiexperience').checked) {
+                        document.intCalc.txtSubTot.value = Multiexperience;
+                        argSelection = Multiexperience;
+                        calcVatTotal(argSelection);
+                       
+                    }
+                    else if (document.getElementById('DistributedCloud').checked) {
+                        document.intCalc.txtSubTot.value = DistributedCloud;
+                        argSelection = DistributedCloud;
+                        calcVatTotal(argSelection);
+                    }
+                }
+               
+               
+                function calcVatTotal(parmSelection) {
+                    var argsubTotal = parseFloat(parmSelection);
+                    var argdiscountAmt = parseFloat(argsubTotal * .05);
+                    var argvatAmt = parseFloat(argsubTotal * .20);    
+                    var argtotalPrice = parseFloat(argsubTotal - argdiscountAmt + argvatAmt);
+                   calcDisp(argsubTotal, argdiscountAmt,argvatAmt,argtotalPrice);
+                   
+                 
+                }
+
+function calcDisp(parmsubTotal, parmdiscountAmt, parmvatAmt, parmtotalPrice){
+document.intCalc.txtSubTot.value = parmsubTotal;
+document.intCalc.txtDisc.value = parmdiscountAmt;
+                    document.intCalc.txtVAT.value = parmvatAmt;
+                    document.intCalc.txtTotal.value = parmtotalPrice;
+}
+               
+               
+            </script>
+
+    </body>
+    </html>
